@@ -1,0 +1,27 @@
+# vim: set ft=zsh :
+source ~/.zplug/init.zsh
+
+zplug "zsh-users/zsh-completions"
+zplug "plugins/autojump"                  , from:oh-my-zsh
+zplug "unixorn/rake-completion.zshplugin"
+zplug "mollifier/cd-gitroot"
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "b4b4r07/enhancd"
+zplug "plugins/vagrant"                   , from:oh-my-zsh
+zplug "plugins/rbenv"                     , from:oh-my-zsh
+zplug "plugins/ruby"                      , from:oh-my-zsh
+zplug "plugins/github"                    , from:oh-my-zsh
+zplug "plugins/gem"                       , from:oh-my-zsh
+zplug "mollifier/anyframe"
+zplug "themes/steeef"                     , from:oh-my-zsh
+
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+# Then, source plugins and add commands to $PATH
+zplug load --verbose
+source ~/.zplug/repos/robbyrussell/oh-my-zsh/themes/steeef.zsh-theme
